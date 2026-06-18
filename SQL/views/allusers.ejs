@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User data</title>
+</head>
+<body>
+
+    <table border="1">
+        <caption>All Users in Database</caption>
+
+        <tr>
+            <th>SR No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+
+        <% let i=0; for(let user of users){
+           
+            i=i+1; %>
+        <tr>
+            <td><%= i %></td>
+            <td><%= user.id %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.password %></td>
+            <td>
+                <form action="/user/<%= user.id %>/edit">
+                    <button>Edit Udername</button>
+                </form>
+            </td>
+            <td>
+                <a href="/user/<%=user.id%>/delete">Delete User</a>
+                 <!-- <form action="/user/<%= user.id %>/delete">
+                    <button>Delete Udername</button>
+                </form> -->
+            </td>
+        </tr>
+        <% } %>
+
+    </table>
+    <a href="/user/add">Add User</a>
+</body>
+</html>

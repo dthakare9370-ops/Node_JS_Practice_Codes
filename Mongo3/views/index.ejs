@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Chats</title>
+</head>
+<body>
+
+<h3>All Chats</h3>
+    <a href="http://localhost:8080/chats/add"><button>Add Chats</button></body></a>
+    <% for(let chat of chats) {%>
+    <div>
+        <hr>
+        <p>To : <%= chat.to %></p>
+        <p>From : <%= chat.from %></p>
+        <p>Message : <%= chat.message %></p>
+        <form method="GET" action="/chats/<%= chat._id %>/edit" style="display:inline;">
+            <button>Edit</button>
+        </form>
+        
+            <form method="POST" action="/chats/<%= chat._id %>?_method=DELETE" style="display:inline;">
+                <button onclick="return confirm('Are you sure ?')">Delete Chat</button>
+            </form>
+        </div>
+        <% } %>
+
+       
+</body>
+</html>
